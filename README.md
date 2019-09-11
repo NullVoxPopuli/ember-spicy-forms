@@ -9,6 +9,10 @@ Goals:
  - can be given a pojo
  - provide helpers for decoupling UI from the from.
 
+Maybe Goals:
+ - store history of change sets (would allow for undo)
+ - multi stage forms?
+
 API Ideas
 
 ```hbs
