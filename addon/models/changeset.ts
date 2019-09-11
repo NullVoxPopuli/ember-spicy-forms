@@ -1,3 +1,7 @@
+// Maybe take stuff from https://github.com/poteto/ember-changeset
+//
+//
+//
 // Todo: lookup the interface for Yup validators.
 export class ChangeSet<PersistenceModel> {
   public data;
