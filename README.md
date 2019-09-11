@@ -1,14 +1,59 @@
 ember-spicy-forms
 ==============================================================================
 
-[Short description of the addon.]
+Helpers for universal form control.
 
+Goals:
+ - integration with validation libraries
+ - able to be given some object that knows how to persistent state (to maybe local storage in case of browser refresh, or computer crash)
+ - can be given a pojo
+ - provide helpers for decoupling UI from the from.
+
+API Ideas
+
+```hbs
+<SpicyForm
+  @onSubmit={{this.doTheSubmit}}
+  @data={{this.somePojo}}
+  @validator={{this.yupValidator}}
+as |form|>
+  {{#form.helpersFor 'firstName' as |firstName|}}
+
+    {{#if firstName.hasError}}
+      {{firstName.error}}
+    {{/if}}
+
+    <label for={{firstName.fieldId}}>First name</label>
+    <input
+      id={{firstName.fieldId}}
+      value={{firstName.value}}
+      {{on 'input' firstName.onInput}}
+    >
+
+  {{/form.helpersFor}}
+
+  {{#form.helpersFor 'hasNotifications' as |hasNotifications|}}
+
+    <label for={{hasNotifications.fieldId}}>Enable Notifications?</label>
+
+    <input
+      type='checkbox'
+      checked={{hasNotifications.checked}}
+      {{on 'change' (pipe
+        this.requestPermission
+        (hasNotifications.withChangeset (perform this.doWork))
+      ) }}
+    >
+
+  {{/form.helpersFor}}
+</SpicyForm>
+```
 
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v2.18 or above
-* Ember CLI v2.13 or above
+* Ember.js v3.12 or above
+* Ember CLI v3.12 or above
 * Node.js v8 or above
 
 
