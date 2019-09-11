@@ -3,6 +3,9 @@ ember-spicy-forms
 
 Helpers for universal form control.
 
+Notes:
+ - https://www.npmjs.com/package/validated-proxy
+
 Goals:
  - integration with validation libraries
  - able to be given some object that knows how to persistent state (to maybe local storage in case of browser refresh, or computer crash)
