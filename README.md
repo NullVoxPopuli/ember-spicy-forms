@@ -8,6 +8,7 @@ Goals:
  - able to be given some object that knows how to persistent state (to maybe local storage in case of browser refresh, or computer crash)
  - can be given a pojo
  - provide helpers for decoupling UI from the from.
+ - let the user decide when and how to validate?
 
 Maybe Goals:
  - store history of change sets (would allow for undo)
