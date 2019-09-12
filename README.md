@@ -46,12 +46,40 @@ as |form|>
 
     <input
       type='checkbox'
+      id={{hasNotifications.fieldId}}
       checked={{hasNotifications.checked}}
       {{on 'change' (pipe
         this.requestPermission
         (hasNotifications.withChangeset (perform this.doWork))
       ) }}
     >
+
+  {{/form.helpersFor}}
+</SpicyForm>
+```
+
+Maybe if/when we get hash-splatting, "splashes"?:
+```hbs
+<SpicyForm
+  @onSubmit={{this.doTheSubmit}}
+  @data={{this.somePojo}}
+  @validator={{this.yupValidator}}
+as |form|>
+  {{#form.helpersFor 'firstName' as |firstName|}}
+
+    {{#if firstName.hasError}}
+      {{firstName.error}}
+    {{/if}}
+
+    <label for={{firstName.fieldId}}>First name</label>
+    <input ...firstName.inputAttributes>
+
+  {{/form.helpersFor}}
+
+  {{#form.helpersFor 'hasNotifications' as |hasNotifications|}}
+
+    <label for={{hasNotifications.fieldId}}>Enable Notifications?</label>
+    <input type='checkbox' ...hasNotifications.inputAttributes>
 
   {{/form.helpersFor}}
 </SpicyForm>
