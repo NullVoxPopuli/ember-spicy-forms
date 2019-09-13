@@ -1,21 +1,22 @@
 import Component from '@glimmer/component';
 import layout from '../templates/components/spicy-form';
 
-type Task<Args, Return> = unknown; // e-concurrency Task tbd;
 type ChangeSet = unknown; // details tbd;
-type OnSubmitFn = (changeSet: ChangeSet) => Promise<void>;
-type OnSubmitTask = Task<[ChangeSet], void>;
+
+// deliberately not a task, cause the caller should manage
+// the intermediate state
+type OnSubmitFn = (changeSet: ChangeSet) => void;
 
 type Args =
   {
     form?: unknown;
     validator?: unknown;
-    onSubmit?: OnSubmitTask | OnSubmitFn;
+    onSubmit?: OnSubmitFn;
   }
   |
   {
     changeset?: ChangeSet;
-    onSubmit?: OnSubmitTask | OnSubmitFn;
+    onSubmit?: OnSubmitFn;
   }
 ;
 
