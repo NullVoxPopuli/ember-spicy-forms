@@ -1,1 +1,24 @@
-{{yield}}
+{{yield (hash
+  name=this.fieldName
+  value=''
+  onChange=''
+  fieldId=''
+  hasError=false
+  hasWarning=false
+  isValid=true
+  hasValidationRan=false
+  errors=(array)
+  firstError=undefined
+)}}
+{{!--
+
+maybe future things:
+
+  connectInput
+   - sets up event listeners, value, etc
+   - modifier
+   - blocked by modifier yielding not implemented
+
+  also yielded helpers are implemented either
+
+--}}
