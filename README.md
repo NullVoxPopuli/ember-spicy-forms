@@ -5,6 +5,9 @@ Helpers for universal form control.
 
 Notes:
  - https://www.npmjs.com/package/validated-proxy
+ - https://github.com/ololabs/principled-forms
+ - https://github.com/gossi/spomoda/blob/master/web/app/utils/changeset.ts
+   - https://github.com/gossi/spomoda/blob/master/web/app/ui/components/skill-form/template.hbs
 
 Goals:
  - integration with validation libraries
